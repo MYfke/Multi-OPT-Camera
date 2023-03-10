@@ -608,7 +608,8 @@ def run(index, camera):
             streamSource.contents.release(streamSource)
             return -1
         else:
-            print("getFrame success BlockId = [" + str(frame.contents.getBlockId(frame)) + "], get frame time: " + str(
+            print("Camera [" + str(index) + "] getFrame success BlockId = [" + str(
+                frame.contents.getBlockId(frame)) + "], get frame time: " + str(
                 datetime.datetime.now()))
 
         nRet = frame.contents.valid(frame)
@@ -670,7 +671,7 @@ def run(index, camera):
             break
     # --- end while ---
 
-    cv2.destroyAllWindows()
+    # cv2.destroyAllWindows()
 
     # 停止拉流
     # stop grabbing
@@ -723,8 +724,8 @@ if __name__ == "__main__":
         threads.append(threading.Thread(target=run, args=(index, camera)))
     for thread in threads:
         thread.start()
-    for thread in threads:
-        thread.join()
+    # for thread in threads:
+    #     thread.join()
     # nRet = run()
     # if nRet != 0:
     #     print("Some Error happend")
