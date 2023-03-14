@@ -18,7 +18,11 @@ from OPTSDK import *
 
 
 class OptCamera:
-
+    """
+    此类提供了两个比较重要的函数，
+    get_image(),此函数通过调用可以返回一帧图片
+    stop_grabbing(),停止相机对象拉流
+    """
     def __init__(self, index, camera):
         self.index = index
         self.camera = camera
@@ -707,7 +711,7 @@ if __name__ == '__main__':
         gc.collect()
 
         if cv2.waitKey(1) >= 0:
-            isGrab = False
+            # isGrab = False
             break
     print("--------- Demo end ---------")
     # 3s exit
